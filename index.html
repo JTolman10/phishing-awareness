@@ -97,6 +97,21 @@
             font-style: italic;
         }
 
+        .sidebar-warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .sidebar-warning strong {
+            color: #e65100;
+        }
+
         /* Main Content Area */
         .main-content {
             flex: 1;
@@ -114,6 +129,15 @@
             font-size: 1.8em;
         }
 
+        .main-content h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            border-left: 4px solid #764ba2;
+            padding-left: 12px;
+        }
+
         .main-content p {
             color: #555;
             line-height: 1.8;
@@ -121,14 +145,71 @@
             font-size: 1.05em;
         }
 
-        .placeholder {
-            color: #999;
-            font-style: italic;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #ddd;
+        .main-content ul, .main-content ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #e06c75;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        .vulnerability-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
             border-radius: 4px;
-            min-height: 200px;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .vulnerability-box strong {
+            color: #c92a2a;
+        }
+
+        .impact-box {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .meta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #fff;
+            font-weight: 500;
+        }
+
+        .meta-box em {
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .emoji-highlight {
+            font-size: 1.2em;
+            margin-right: 5px;
         }
 
         /* Responsive Design */
@@ -170,18 +251,32 @@
             font-size: 0.9em;
             border-top: 2px solid rgba(255, 255, 255, 0.2);
         }
+
+        .irony-notice {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #0d47a1;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>🛡️ Phishing Awareness</h1>
-        <p>Understanding digital threats and your network information</p>
+        <h1>🛡️ Phishing Awareness Training</h1>
+        <p><em>*Ironically demonstrating the exact vulnerability we're teaching you about*</em></p>
     </header>
 
     <div class="container">
         <!-- Sidebar: IP and Browser Information -->
         <aside class="sidebar">
-            <h3>Your Network Info</h3>
+            <h3>👉 Hey, Look! Your Info!</h3>
+
+            <div class="sidebar-warning">
+                <strong>EXHIBIT A:</strong> This page just harvested your IP address and browser details without asking. Sound familiar?
+            </div>
 
             <!-- IP Address Section -->
             <div class="info-section">
@@ -193,12 +288,6 @@
             <div class="info-section">
                 <h4>Organization</h4>
                 <div class="info-value" id="org-value">Loading...</div>
-            </div>
-
-            <!-- ISP Section -->
-            <div class="info-section">
-                <h4>ISP</h4>
-                <div class="info-value" id="isp-value">Loading...</div>
             </div>
 
             <!-- Location Section -->
@@ -215,7 +304,7 @@
 
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #e0e0e0;">
 
-            <h3 style="margin-top: 20px;">Browser Information</h3>
+            <h3 style="margin-top: 20px;">Your Device Specs</h3>
 
             <!-- User Agent -->
             <div class="info-section">
@@ -241,32 +330,118 @@
                 <div class="info-value" id="timezone-value">Loading...</div>
             </div>
 
-            <!-- Do Not Track -->
-            <div class="info-section">
-                <h4>Do Not Track</h4>
-                <div class="info-value" id="dnt-value">Loading...</div>
-            </div>
         </aside>
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <h2>Welcome to Phishing Awareness Training</h2>
-            <div class="placeholder" id="writeup-content">
-                <p>This section is ready for your phishing awareness writeup. Your browser has automatically detected and displayed your network and device information in the sidebar on the left—this is the type of information that phishing attacks often attempt to harvest.</p>
-                <p style="margin-top: 15px;">Add your content here to educate about:</p>
-                <ul style="margin-left: 20px; margin-top: 10px; color: #555;">
-                    <li>Common phishing techniques</li>
-                    <li>How to identify suspicious emails</li>
-                    <li>Best security practices</li>
-                    <li>Reporting procedures</li>
-                    <li>Real-world examples</li>
-                </ul>
+            <h2>Unauthenticated Email Routing: The Intranet Email Spoofing Vulnerability</h2>
+
+            <div class="irony-notice">
+                <span class="emoji-highlight">🎯</span> <strong>Fun Fact:</strong> This page is demonstrating a REAL vulnerability while simultaneously being a vulnerable educational tool. Your IP is visible in the sidebar. If this were a real exploit, an attacker could route emails to themselves, steal credentials, or impersonate your CEO. Meta? Absolutely.
             </div>
+
+            <h3>Vulnerability Summary</h3>
+            <p>This writeup addresses a critical security flaw present in legacy intranet applications that accept email addresses as DOM-embedded parameters and route messages to those addresses without proper identity verification or authentication. Ironically, <strong>this very page demonstrates exactly how easily attackers can extract your information without you realizing it.</strong></p>
+
+            <h3>Technical Root Cause</h3>
+            <p>The vulnerability stems from three fundamental design flaws:</p>
+            <ol>
+                <li><strong>Unvalidated DOM Parameter Injection:</strong> The application reads email recipients directly from DOM elements (data attributes, hidden inputs, or inline JavaScript variables) without server-side validation or sanitization.</li>
+                <li><strong>Lack of Authentication Layer:</strong> No verification mechanism exists to confirm the sender's identity or authorization to route emails on behalf of the intranet system.</li>
+                <li><strong>Implicit Trust in Client-Side Context:</strong> The application assumes that any request originating from the intranet IP space is inherently trusted, bypassing standard email authentication protocols (SPF, DKIM, DMARC).</li>
+            </ol>
+
+            <div class="code-block">
+// Vulnerable Pattern (What the exploited app looks like)
+const recipientEmail = document.getElementById('recipient-addr').value;
+const messageBody = document.getElementById('message').value;
+
+fetch('/api/send-email', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    to: recipientEmail,        // Unsanitized from DOM
+    from: 'system@intranet',   // Hardcoded, no verification
+    message: messageBody
+  })
+});
+            </div>
+
+            <div class="vulnerability-box">
+                <strong>🚨 The Real Problem:</strong> The recipient address originates entirely from the client-side DOM without server-side authentication. An attacker on the intranet can intercept, modify, or craft requests to redirect emails to external addresses or impersonate authorized users.
+            </div>
+
+            <h3>Attack Vectors (AKA How to Ruin Someone's Day)</h3>
+            <ol>
+                <li><strong>Email Redirect Attack:</strong> Modify the DOM recipient parameter to forward internal communications to attacker-controlled external email addresses. Exfiltrate confidential intranet data while the victim thinks it went to the right place.</li>
+                <li><strong>Privilege Escalation:</strong> Craft emails that appear to originate from privileged system accounts (e.g., admin@intranet) to gain elevated access or manipulate other intranet services. Suddenly you're the "system" now.</li>
+                <li><strong>Business Email Compromise (BEC):</strong> Generate convincing internal emails impersonating executives or system administrators to execute fraudulent transactions or approve unauthorized requests. Bonus points if you study their email writing style.</li>
+                <li><strong>Malware Distribution:</strong> Route malicious attachments through the trusted internal email system to bypass external gateway filters and AV scanning. Your colleagues will click it because it looks official.</li>
+                <li><strong>Lateral Movement:</strong> Exploit trust relationships between intranet services by routing administrative notifications to alternative endpoints controlled by the attacker. Use one compromise to break into everything.</li>
+            </ol>
+
+            <div class="meta-box">
+                <span class="emoji-highlight">🤔</span> <em>Speaking of Attack Vectors: Right now, an attacker on your network could have captured your IP and browser info from this page. They could route a spoofed email pretending to be from IT to your email address asking you to "verify your credentials." Spooky, right?</em>
+            </div>
+
+            <h3>Impact Assessment</h3>
+            <div class="impact-box">
+                <strong>Severity: CRITICAL (CVSS 3.1: 9.8)</strong>
+                <p>This vulnerability exposes the intranet to uncontrolled message injection and identity spoofing within a trusted internal network segment. The combination of network trust and lack of application-layer authentication creates an environment where attackers can impersonate any system entity without detection. It's basically handing over the keys to the kingdom.</p>
+            </div>
+
+            <h3>Real-World Exploitation Scenario</h3>
+            <p><strong>The Setup:</strong> An attacker gains access to an intranet workstation (maybe through phishing... oh, the irony). They identify a vulnerable intranet application that routes notifications to HR staff:</p>
+
+            <div class="code-block">
+// Attacker opens browser console and types:
+document.getElementById('recipient-addr').value = 
+  'attacker@malicious-domain.com';
+document.getElementById('message').value = 
+  'URGENT: Please submit W-4 forms to this secure server';
+
+// Submit the form - email routes to attacker
+document.getElementById('send-btn').click();
+
+// Meanwhile, HR thinks they got a legitimate internal request
+// Meanwhile, attacker now has PII for half the company
+            </div>
+
+            <p><strong>The Result:</strong> The email appears to originate from the intranet system (system@intranet), passes all internal firewall rules due to source IP trust, and HR receives a convincing internal notification. They comply, send W-4 forms (with SSNs), and nobody even knows.</p>
+
+            <div class="meta-box">
+                <span class="emoji-highlight">💀</span> <em>Even scarier: If this were a REAL attack, the attacker already has your IP address from the sidebar on the left. They know you opened this page. They know your timezone, screen resolution, and browser type. They're learning.</em>
+            </div>
+
+            <h3>Remediation Strategies (How to Actually Fix This)</h3>
+            <ol>
+                <li><strong>Server-Side Email Validation:</strong> Validate recipient email addresses on the server using a whitelist of authorized intranet recipients. Reject any email addresses outside the trusted domain. Don't trust the client.</li>
+                <li><strong>Mutual TLS Authentication:</strong> Implement certificate-based client authentication for all email routing endpoints. Verify the client certificate against a trusted CA before processing requests.</li>
+                <li><strong>SMTP Authentication Protocol:</strong> Require full SMTP authentication (RFC 5321) with per-user credentials rather than relying on source IP-based trust. Implement SMTP relay restrictions.</li>
+                <li><strong>Email Header Verification:</strong> Enforce SPF, DKIM, and DMARC policies on all outbound emails, including internal routing. Sign all emails with organizational DKIM keys.</li>
+                <li><strong>Rate Limiting & Anomaly Detection:</strong> Implement per-user rate limits on email routing requests and log all email transmission events for audit trails. Alert on unusual routing patterns.</li>
+                <li><strong>Remove Client-Side Email Configuration:</strong> Never, EVER embed recipient addresses or routing logic in the DOM. All email routing decisions must originate from server-side authorization logic. Period.</li>
+                <li><strong>Zero Trust Architecture:</strong> Stop trusting your internal network. Just because someone is on the intranet doesn't mean they should be able to impersonate the entire company.</li>
+            </ol>
+
+            <h3>Detection & Response (What to Do When (Not If) This Happens)</h3>
+            <ul>
+                <li><strong>Monitor Email Logs:</strong> Audit all emails originating from system-level accounts. Alert on messages sent to external recipients or unusual distribution lists.</li>
+                <li><strong>Network-Level Detection:</strong> Implement email gateway policies that log and alert when internal system accounts route messages outside the organization, regardless of source IP.</li>
+                <li><strong>Endpoint Investigation:</strong> If exploitation is suspected, analyze browser developer tools history, DOM state changes, and network requests to intranet API endpoints.</li>
+                <li><strong>Check for Lateral Movement:</strong> If someone exploited this, they likely moved laterally. Audit password changes, privilege grant logs, and API access patterns across all systems.</li>
+            </ul>
+
+            <h3>Conclusion</h3>
+            <p>This vulnerability exemplifies why intranet security must never rely on network boundaries alone. All authenticated operations—including email routing—must implement explicit, server-side authorization verification. The presence of DOM-embedded parameters in security-critical workflows is a fundamental architectural flaw that enables trivial privilege escalation and data exfiltration within internal networks.</p>
+            
+            <p><strong>And if this page made you uncomfortable because it collected your IP without asking?</strong> Good. That's the point. That uncomfortable feeling is your security instinct kicking in. Trust it. Question everything. And for heaven's sake, <strong>never embed sensitive logic in the DOM.</strong></p>
+
         </main>
     </div>
 
     <footer>
-        <p>💡 Tip: The information displayed above is what attackers can gather about you. Stay vigilant and report suspicious activity.</p>
+        <p>💡 Your IP address displayed above is proof that intranet trust is not a security control. Stay paranoid. Stay safe.</p>
     </footer>
 
     <script>
@@ -277,9 +452,9 @@
                 const data = await response.json();
 
                 if (data.success) {
+                    console.log(data)
                     document.getElementById('ip-value').textContent = data.ip || 'Unavailable';
-                    document.getElementById('org-value').textContent = data.org || 'Not identified';
-                    document.getElementById('isp-value').textContent = data.isp || 'Not identified';
+                    document.getElementById('org-value').textContent = data.connection.org || 'Not identified';
                     document.getElementById('location-value').textContent = `${data.city || 'N/A'}, ${data.region || 'N/A'}, ${data.country_name || 'N/A'}`;
                     document.getElementById('continent-value').textContent = data.continent || 'N/A';
                 } else {
@@ -289,7 +464,6 @@
                 console.error('Error fetching IP info:', error);
                 document.getElementById('ip-value').textContent = 'Unable to retrieve';
                 document.getElementById('org-value').textContent = 'Unable to retrieve';
-                document.getElementById('isp-value').textContent = 'Unable to retrieve';
                 document.getElementById('location-value').textContent = 'Unable to retrieve';
                 document.getElementById('continent-value').textContent = 'Unable to retrieve';
             }
@@ -312,11 +486,6 @@
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
             document.getElementById('timezone-value').textContent = timezone;
 
-            // Do Not Track
-            const dnt = (navigator.doNotTrack === "1" || window.doNotTrack === "1") 
-                ? "Enabled" 
-                : "Disabled/Not Supported";
-            document.getElementById('dnt-value').textContent = dnt;
         }
 
         // Run on page load
